@@ -96,4 +96,30 @@ $(document).ready(() => {
     let inputFile = $('.inputfile')[0];
     inputFile.addEventListener('change', handleFileSelect, false);
  });
+ ///////////////////////////////////////////////////////////////////////////////
+  const util = require('util');
+  const mongoose = require('mongoose');
+
+  mongoose.connect('mongodb://localhost/practica9');
+  const EntradaSchema = mongoose.Schema({ 
+    "nombre" : String,
+    "datos" : [String]
+  });
+
+  const Entrada = mongoose.model("Entrada", EntradaSchema);
+
+  let c1 = new Entrada({"nombre":"dani", "datos":["spades ♠"]});
+
+
+  let p1 = c1.save(function (err) {
+    if (err) { console.log(`Hubieron errores:\n${err}`); return err; }
+    console.log(`Saved: ${c1}`);
+  });
+
+
+  Promise.all([p1]).then( (value) => { 
+    console.log(util.inspect(value, {depth: null}));  
+    mongoose.connection.close(); 
+  });
+   ///////////////////////////////////////////////////////////////////////////////
 })();
