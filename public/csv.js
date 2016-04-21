@@ -97,21 +97,8 @@ $(document).ready(() => {
         dump(`${$(element).text()}.txt`);
       });
    });
-   /*
-   // botones para rellenar el textarea con base datos 
-    $('button.botones_bd').each((index, element) => {
-     $(element).click(() => {
-       $.get("/elementosBotones",
-          { numeroBoton: 0}, //element.value   `${$(element).text()}`
-          fillTextArea,
-          'json'
-        );
-        
-      });
-   });
-   */
-   
-   ////
+ 
+ 
    $("#guardar").click( () => {
         $.get("/save",
           { input: original.value,

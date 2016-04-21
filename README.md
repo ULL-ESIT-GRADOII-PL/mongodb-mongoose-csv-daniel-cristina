@@ -35,12 +35,11 @@ $.ajax({
 
 The success callback function is passed the returned data, which will be an XML root element, text string, JavaScript file, or JSON object, depending on the MIME type of the response. It is also passed the text status of the response.
 
-# Heroku
-* Despliegue en [heroku] (https://boiling-river-82860.herokuapp.com/) :Analizador CSV.
+# C9
+* Enlace [Cloud9] (http://mongo-cris-alu0100821338.c9users.io/)
 
 # Repositorios
-* Enlace [repo] (https://github.com/ULL-ESIT-GRADOII-PL/ajax-ecma6-modules-files-daniel-cristina) Oficial-ULL.
-* Enlace [repo] (https://github.com/alu0100821338/ajax-ecma6-modules-files-daniel-cristina) de trabajo.
+* Enlace [repo] (https://github.com/ULL-ESIT-GRADOII-PL/mongodb-mongoose-csv-daniel-cristina) Oficial-ULL.
 
 # Autores
 * Daniel Daher Pérez: [alu0100811933] (http://alu0100811933.github.io﻿).
