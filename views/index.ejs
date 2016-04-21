@@ -7,8 +7,8 @@
     </div>
     <div class="contenido">
       <table class="center" id="input">
-        <tr><th>Escriba aquí una entrada CSV o bien</th></tr>
-        <tr><th>Arrastre un fichero CSV hasta la zona de entrada</th></tr>
+        <tr><th>Escribe aqui una entrada CSV o bien</th></tr>
+        <tr><th>arrastre un fichero CSV hasta la zona de entrada</th></tr>
         <tr>
           <th>
             <textarea class = "drop_zone" autofocus="" cols = "80" rows = "5" id="original"></textarea>
@@ -28,6 +28,7 @@
               <button class ="example" type="button">input3</button>
             </div>
           </th>
+
         </tr>
         <tr>
           <th>
@@ -35,9 +36,22 @@
               <input type="file" class="inputfile" />
           </th>
         </tr>
+		
+		<tr>
+		<th></th>	<!-- espacios -->
+		</tr>
+		
+		<th></th>
+		<tr>
+		<th></th>	<!-- espacios -->
+		 <tr><th>Si desea guardar el contenido de la zona de entrada en la base de datos</th></tr>
+		 <tr><th>Introduzca el nombre de usuario y guarde.</th></tr>
+		</th>
+        </tr>
+		
         <tr>
-          <th>
-            Click para guardar archivo:
+		<th>
+		 Usuario: <textarea class = "user_zone" autofocus="" cols = "12" rows = "1" id="usuario"></textarea>
             <button id ="guardar" type="button">Guardar</button> 
           </th>
         </tr>
