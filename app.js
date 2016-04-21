@@ -19,12 +19,23 @@ const entradaSchema = mongoose.Schema({
     var Entrada = mongoose.model("Entrada", entradaSchema);
     
            var modelo = db.model('Entradas', entradaSchema);
-  modelo.count({}, function(err, c) {
-    contador = c;
-        
-  });
+  
   //console.log('Count is ' + contador);
 app.get('/save', (request, response) => {
+    
+         modelo.find({}, function(err, c) {
+              if (err)
+            return err;
+         
+       if (c.length >= 4) {
+           console.log('Hay que borrar uno');
+            Entrada.find({ nombre: c[0].nombre }).remove().exec();
+        }
+    });      
+
+    
+    
+    
   var contenido = new Entrada ({nombre: request.query.user, datos: request.query.input});
   
    let p1 = contenido.save(function (err) {
@@ -36,25 +47,28 @@ app.get('/save', (request, response) => {
     mongoose.connection.close(); 
   });
   response.render('index', {title: 'CSV'});
+    
+    
 });
-/*
-var mongoose = require('mongoose');
- var db = mongoose.connect('mongodb://localhost/myApp');
- var userSchema = new mongoose.Schema({name:String,password:String});
- var userModel =db.model('userlists',userSchema);
- var anand = new userModel({ name: 'anand', password: 'abcd'});
- anand.save(function (err, docs) {
-   if (err) {
-       console.log('Error');
-   } else {
-       userModel.count({name: 'anand'}, function(err, c) {
-           console.log('Count is ' + c);
-      });
-   }
- }); */
+
+///////////////////////////////////////////////
 
 
+app.get('/elementosBotones', function(request, response) { 
+    Entrada.find({}, function(err, datos) {
+    if(!err) {
+      console.log(datos);
+      response.send (datos);
+    }
+    else {
+      console.log("BD vacia");
+      response.send ("Base de datos vacia");
+    }
+  });
+});
 
+
+/////////////////////////////////////////////////
 
 
 app.set('port', (process.env.PORT || 5000));

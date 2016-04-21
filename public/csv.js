@@ -22,6 +22,11 @@ const fillTable = (data) => {
   $("#finaltable").html(_.template(resultTemplate, { rows: data.rows }));
 };
 
+
+
+
+
+
 /* Volcar en la textarea de entrada
  * #original el contenido del fichero fileName */
 const dump = (fileName) => {
@@ -66,6 +71,11 @@ const handleDragOver = (evt) => {
   evt.target.style.background = "grey";
 }
 
+const fillTextArea = (data) => {
+  $("#original").val(data);
+  $("#usuario").val(data.nombre);
+}
+
 $(document).ready(() => {
     let original = document.getElementById("original");
     if (window.localStorage && localStorage.original) {
@@ -87,13 +97,60 @@ $(document).ready(() => {
         dump(`${$(element).text()}.txt`);
       });
    });
+   /*
+   // botones para rellenar el textarea con base datos 
+    $('button.botones_bd').each((index, element) => {
+     $(element).click(() => {
+       $.get("/elementosBotones",
+          { numeroBoton: 0}, //element.value   `${$(element).text()}`
+          fillTextArea,
+          'json'
+        );
+        
+      });
+   });
+   */
    
+   ////
    $("#guardar").click( () => {
         $.get("/save",
           { input: original.value,
             user: usuario.value},
           'json'
         );
+   });
+   
+   
+      $("#1").click( () => {
+      $.get("/elementosBotones",
+        { input: 1 },
+        fillTextArea,
+        'json'
+      );
+   });
+   
+   $("#2").click( () => {
+      $.get("/elementosBotones",
+        { input: 2 },
+        fillTextArea,
+        'json'
+      );
+   });
+   
+   $("#3").click( () => {
+      $.get("/elementosBotones",
+        { input: 3 },
+        fillTextArea,
+        'json'
+      );
+   });
+   
+   $("#4").click( () => {
+      $.get("/elementosBotones",
+        { input: 4 },
+        fillTextArea,
+        'json'
+      );
    });
 
     // Setup the drag and drop listeners.
