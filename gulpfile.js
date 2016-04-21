@@ -25,6 +25,8 @@ gulp.task('test', function() {
     });
 });
 
+
+
 gulp.task('minify-js', function() {
   gulp.src(['public/vendor/*.js', '*.js', 'public/*.js'])
     .pipe(minify({
