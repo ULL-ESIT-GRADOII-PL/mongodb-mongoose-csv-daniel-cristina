@@ -25,7 +25,7 @@ const entradaSchema = mongoose.Schema({
   });
   //console.log('Count is ' + contador);
 app.get('/save', (request, response) => {
-  var contenido = new Entrada ({datos: request.query.input});
+  var contenido = new Entrada ({nombre: request.query.user, datos: request.query.input});
   
    let p1 = contenido.save(function (err) {
         console.log('Count is ' + contador);

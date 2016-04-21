@@ -90,7 +90,8 @@ $(document).ready(() => {
    
    $("#guardar").click( () => {
         $.get("/save",
-          { input: original.value },
+          { input: original.value,
+            user: usuario.value},
           'json'
         );
    });
